@@ -65,5 +65,23 @@ The rule for acceptance can then be formulated as:
 
 Note the prior components are often crossed out if there is no preference or restriction on the parameters.
 
+The rule means that if a <img src="https://latex.codecogs.com/gif.latex?\theta^{'}" title="\theta^{'}" /> is more likely than the current <img src="https://latex.codecogs.com/gif.latex?\theta" title="\theta" />, then we always accept <img src="https://latex.codecogs.com/gif.latex?\theta^{'}" title="\theta^{'}" />. If it is less likely than the current <img src="https://latex.codecogs.com/gif.latex?\theta" title="\theta" />, then we might accept it or reject it. The less likely it is, the less probability we accept the new <img src="https://latex.codecogs.com/gif.latex?\theta^{'}" title="\theta^{'}" />.
 
+In summary, the Metropolis-Hastings algorithm works as below.
 
+Given
+* <img src="https://latex.codecogs.com/gif.latex?f" title="f" />, the PDF of the distribution to sample from
+* <img src="https://latex.codecogs.com/gif.latex?Q" title="Q" />, the transition model
+* <img src="https://latex.codecogs.com/gif.latex?\theta_{0}" title="\theta_{0}" />, a first guess for <img src="https://latex.codecogs.com/gif.latex?\theta" title="\theta" />
+
+Set
+* <img src="https://latex.codecogs.com/gif.latex?\theta=\theta_{0}" title="\theta=\theta_{0}" />
+
+For n iterations
+* <img src="https://latex.codecogs.com/gif.latex?\theta^{'}=Q(\theta_{i})" title="\theta^{'}=Q(\theta_{i})" />
+* <img src="https://latex.codecogs.com/gif.latex?ratio&space;=&space;\frac{p^{'}}{p}=\frac{f(D|\Theta=\theta^{'})P(\theta^{'})}{f(D|\Theta=\theta)P(\theta)}" title="ratio = \frac{p^{'}}{p}=\frac{f(D|\Theta=\theta^{'})P(\theta^{'})}{f(D|\Theta=\theta)P(\theta)}" />
+* if ratio > 1
+  * set <img src="https://latex.codecogs.com/gif.latex?\theta_{i}=\theta^{'}" title="\theta_{i}=\theta^{'}" />
+* else
+  * generate a uniform random number <img src="https://latex.codecogs.com/gif.latex?r" title="r" /> in <img src="https://latex.codecogs.com/gif.latex?[0,1]" title="[0,1]" />
+  * if <img src="https://latex.codecogs.com/gif.latex?r<ratio" title="r<ratio" />, set <img src="https://latex.codecogs.com/gif.latex?\theta_{i}=\theta^{'}" title="\theta_{i}=\theta^{'}" />
