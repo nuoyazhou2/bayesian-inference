@@ -85,3 +85,24 @@ For n iterations
 * else
   * generate a uniform random number <img src="https://latex.codecogs.com/gif.latex?r" title="r" /> in <img src="https://latex.codecogs.com/gif.latex?[0,1]" title="[0,1]" />
   * if <img src="https://latex.codecogs.com/gif.latex?r<ratio" title="r<ratio" />, set <img src="https://latex.codecogs.com/gif.latex?\theta_{i}=\theta^{'}" title="\theta_{i}=\theta^{'}" />
+
+## Hidden Markov Model (HMM)
+HMM is a statistical Markov model in which the system being modeled is assumed to be a Markov process with unobserved (hidden) states.
+
+The term **hidden** refers to the first order Markov process behind the observation.
+The term **observation** refers to the data we know and observe. It is shown by "Walk", "Shop" and "Clean" in the diagram below.
+**Markov** process is shown by the interaction between "Rainy" and "Sunny" in the diagram below, and each of these are **hidden states**.
+
+Now let's define some variables of the model.
+
+* <img src="https://latex.codecogs.com/gif.latex?T" title="T" /> = length of the observation sequence
+* <img src="https://latex.codecogs.com/gif.latex?N" title="N" /> = number of states in the model
+* <img src="https://latex.codecogs.com/gif.latex?M" title="M" /> = number of observation symbols
+* <img src="https://latex.codecogs.com/gif.latex?Q=\left&space;\{&space;q_{0},&space;q_{1},...,q_{N-1}\right&space;\}" title="Q=\left \{ q_{0}, q_{1},...,q_{N-1}\right \}" /> = distinct states of the Markov process
+* <img src="https://latex.codecogs.com/gif.latex?V=\left&space;\{&space;0,&space;1,...,M-1\right&space;\}" title="V=\left \{ 0, 1,...,M-1\right \}" /> = set of possible observations
+* A = state transition probabilities
+* B = observation probability matrix
+* <img src="https://latex.codecogs.com/gif.latex?\pi" title="\pi" /> = initial state distribution
+* <img src="https://latex.codecogs.com/gif.latex?O=\left&space;\{&space;O_{0},&space;O_{1},...,O_{T-1}\right&space;\}" title="O=\left \{ O_{0}, O_{1},...,O_{T-1}\right \}" /> = observation sequence
+
+In the diagram above, T=don't have any observation yet, N=2, M=3, Q={"Rainy", "Sunny"}, V= {"Walk", "Shop", "Clean"}.
