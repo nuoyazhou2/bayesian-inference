@@ -30,6 +30,7 @@ from hmmlearn import hmm
 def calc_prob_of_seq(model, *index):
     """ calculate the probability of an observed sequence happening, given a known model """
     # note that index is a tupple e.g. (0,), (0,1)
+    assert all(isinstance(x, int) for x in index), "Some indices are not of integer type"
     log_prob = model.score(np.array([index]))
     prob = math.exp(log_prob)
     obs_seq_str = "-".join([observations[i] for i in index])
@@ -37,6 +38,7 @@ def calc_prob_of_seq(model, *index):
 
 def calc_optimal_hidden_states(model, *index):
     """ calculate the optimal hidden state sequence, given a known model and an observed sequence happening """
+    assert all(isinstance(x, int) for x in index), "Some indices are not of integer type"
     logprob, seq = model.decode(np.array([index]).transpose())
     optimal_state_seq_str = "-".join([states[i] for i in seq])
     prob = math.exp(logprob)
