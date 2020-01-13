@@ -104,9 +104,22 @@ Now let's define some variables of the model.
 * <img src="https://latex.codecogs.com/gif.latex?M" title="M" /> = number of observation symbols
 * <img src="https://latex.codecogs.com/gif.latex?Q=\left&space;\{&space;q_{0},&space;q_{1},...,q_{N-1}\right&space;\}" title="Q=\left \{ q_{0}, q_{1},...,q_{N-1}\right \}" /> = distinct states of the Markov process
 * <img src="https://latex.codecogs.com/gif.latex?V=\left&space;\{&space;0,&space;1,...,M-1\right&space;\}" title="V=\left \{ 0, 1,...,M-1\right \}" /> = set of possible observations
-* A = state transition probabilities
-* B = observation probability matrix
-* <img src="https://latex.codecogs.com/gif.latex?\pi" title="\pi" /> = initial state distribution
+* A = state transition probabilities (the arrows pointing to each hidden state)
+* B = observation probability matrix (the blue and red arrows pointing to each observations from each hidden state; matrix is row stochastic meaning the rows add up to 1)
+* <img src="https://latex.codecogs.com/gif.latex?\pi" title="\pi" /> = initial state distribution (starts the model off with a hidden state)
 * <img src="https://latex.codecogs.com/gif.latex?O=\left&space;\{&space;O_{0},&space;O_{1},...,O_{T-1}\right&space;\}" title="O=\left \{ O_{0}, O_{1},...,O_{T-1}\right \}" /> = observation sequence
 
-In the diagram above, T=don't have any observation yet, N=2, M=3, Q={"Rainy", "Sunny"}, V= {"Walk", "Shop", "Clean"}.
+In the diagram above, T=don't have any observation yet, N=2, M=3, Q={"Rainy", "Sunny"}, V= {"Walk", "Shop", "Clean"}. 
+
+In the state transition matrix, 
+<img src="https://latex.codecogs.com/gif.latex?a_{ij}=P(state\&space;q_{j}\&space;at\&space;t&plus;1\&space;|\&space;state\&space;q_{i}\&space;at\&space;t)" title="a_{ij}=P(state\ q_{j}\ at\ t+1\ |\ state\ q_{i}\ at\ t)" />
+This matrix explains what the probability is from one state going to another.
+
+In the observation probability matrix, 
+<img src="https://latex.codecogs.com/gif.latex?b_{j}(k)=P(observation\&space;k\&space;at\&space;t\&space;|\&space;state\&space;q_{j}\&space;at\&space;t)" title="b_{j}(k)=P(observation\ k\ at\ t\ |\ state\ q_{j}\ at\ t)" />.
+This matrix explains what the probability is from one state going to an observation.
+
+The full model with known state transition probabilities, observation probability matrix, and initial state distribution is described as,
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?\lambda=(A,B,\pi)" title="\lambda=(A,B,\pi)" />
+</p>
