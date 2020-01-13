@@ -93,6 +93,10 @@ The term **hidden** refers to the first order Markov process behind the observat
 The term **observation** refers to the data we know and observe. It is shown by "Walk", "Shop" and "Clean" in the diagram below.
 **Markov** process is shown by the interaction between "Rainy" and "Sunny" in the diagram below, and each of these are **hidden states**.
 
+<p align="center">
+  <img width="460" height="360" src="./weather_hmm.png">
+</p>
+
 Now let's define some variables of the model.
 
 * <img src="https://latex.codecogs.com/gif.latex?T" title="T" /> = length of the observation sequence
